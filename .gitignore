@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+sensitive
+src/server/public/*
+!src/server/public/readme.md

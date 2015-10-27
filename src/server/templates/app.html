@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <!-- Oh hey there, we're always on the lookout for curious and talented developers, get in touch! :) -->
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="author" content="Collingo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <%= meta %>
+    <%= link %>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="main">
+      <%= app %>
+    </div>
+  </body>
+  <script>
+    window.state = <%= state %>;
+  </script>
+  <script src="/index.js"></script>
+</html>
