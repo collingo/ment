@@ -2,7 +2,11 @@ build:
 	docker build -t ment:0.0.1 .
 
 run:
-	docker run -d --name ment -p 8888:8888 ment:0.0.1
+	docker run -d \
+		--name ment \
+		-p 8888:8888 \
+		-v $(PWD)/src:/usr/src/app/src \
+		ment:0.0.1
 
 rm:
 	docker rm -f ment
@@ -19,4 +23,4 @@ css:
 	docker exec -it ment /usr/src/app/node_modules/.bin/stylus -o /usr/src/app/src/server/public/index.css /usr/src/app/src/app/index.styl
 
 js:
-	docker exec -it ment /usr/src/app/node_modules/.bin/browserify -t babelify -o /usr/src/app/src/server/public/index.js /usr/src/app/src/app/index.js
+	docker exec -it ment /usr/src/app/node_modules/.bin/browserify -t [ babelify --optional es7.classProperties ] -o /usr/src/app/src/server/public/index.js /usr/src/app/src/app/index.js
