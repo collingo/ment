@@ -1,5 +1,6 @@
 import browserify from 'browserify';
 import express from 'express';
+import passport from 'passport';
 import React from 'react';
 // import Helmet from 'react-helmet';
 // import omit from 'lodash/object/omit';
@@ -40,7 +41,9 @@ function renderApp(req, res) {
       });
   // }
 }
-
+router.post("/login", passport.authenticate("local"), function(req, res, next) {
+  return res.json(req.user);
+});
 router.get('/*', renderApp);
 
 export default router;

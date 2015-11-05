@@ -10,7 +10,6 @@ class Main extends React.Component {
     this.state = props.state;
   }
   onChangeStore = (state) => {
-    console.log('store change', state);
     this.setState(state);
   }
   componentDidMount() {
@@ -21,6 +20,7 @@ class Main extends React.Component {
   }
   render() {
     return (<div id="main">
+      <h1>Ment</h1>
       {this.renderPage()}
     </div>);
   }
@@ -28,10 +28,14 @@ class Main extends React.Component {
     let page;
     switch(this.state.page) {
       case 'sign-up':
-        page = <SignUp username={this.state.username} password={this.state.password} confirm={this.state.confirm} />;
+        page = <SignUp {...this.state} />;
       break;
       default:
-        page = <Login username={this.state.username} password={this.state.password} />;
+        if(this.state.user && this.state.user.id) {
+          page = <div>Welcome {this.state.user.username}</div>;
+        } else {
+          page = <Login {...this.state} />;
+        }
     }
     return page;
   }

@@ -5,14 +5,14 @@ import Store from '../../store';
 class Login extends React.Component {
   render() {
     return (<div id="login">
-      <form action="/api/login" method="post" onSubmit={this.onLogin}>
+      <form action="/login" method="post" onSubmit={this.onLogin}>
         <label htmlFor="username">Username:</label>
         <input id="username" type="text" name="username" value={this.props.username} onChange={this.onChangeUsername} />
         <label htmlFor="password">Password:</label>
         <input id="password" type="password" name="password" value={this.props.password} onChange={this.onChangePassword} />
         <input type="submit" value="Login" />
-        <a href="/sign-up" onClick={this.onClickSignUp}>Sign up</a>
       </form>
+      <a href="/sign-up" onClick={this.onClickSignUp}>Sign up</a>
     </div>);
   }
   onChangeUsername(e) {
